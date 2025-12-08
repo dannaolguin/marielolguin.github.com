@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FASHION NOVA</title>
+<style>
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f4f4f8;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+header {
+  background-color: #222;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+nav {
+  background: #a8021d;
+  padding: 15px;
+  text-align: center;
+}
+nav button {
+  background: white;
+  color: #a8021d;
+  border: none;
+  padding: 10px 20px;
+  margin: 0 10px;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+}
+nav button:hover { background:#faf5f6; }
+section { display: none; }
+.active { display: block; }
+
+.catalogo, .catalogo-ofertas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+.producto {
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  text-align: center;
+  padding: 15px;
+  transition: transform 0.2s;
+}
+.producto:hover { transform: scale(1.03); }
+.producto img { width: 100%; border-radius: 15px; }
+.btn {
+  background-color:#a8021d ;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+.btn:hover { background-color: #a8021d; }
+
+#carrito {
+  background-color: #fff;
+  border-top: 3px solid #0078d7;
+  padding: 20px;
+  margin: 20px;
+  text-align: center;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+#carrito p { margin: 5px 0; }
+
+footer {
+  background-color: #222;
+  color: #a8021d;
+  text-align: center;
+  padding: 10px;
+  margin-top: 30px;
+}
+
+#atencion form, #atencion div {
+  max-width: 500px;
+  margin: auto;
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+input, textarea, select {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 10px;
+  border: 1px solid #aaa;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>FASHION NOVA</h1>
+  <p>Moda y estilo para todos</p>
+</header>
+
+<nav>
+  <button onclick="mostrar('inicio')">Inicio</button>
+  <button onclick="mostrar('ofertas')">Ofertas</button>
+  <button onclick="mostrar('novedades')">Novedades</button>
+  <button onclick="mostrar('atencion')">Atención</button>
+    <button onclick="mostrar('informacion')">informacion adicional</button>
+  <button onclick="irAlCarrito()"> Carrito</button>
+</nav>
+
+<section id="inicio" class="active">
+<h2 style="text-align:center; margin-top:20px;">Catálogo Completo</h2>
+<div class="catalogo">
+
+
+<div class="producto">
+  <img src="https://tse3.mm.bing.net/th/id/OIP.Rqstxgl-pH2rQw_uxI3OewHaLH?rs=1&pid=ImgDetMain&o=7&rm=3">
+  <h3>Camisa Blanca</h3>
+  <p>$350 MXN</p>
+  <button class="btn" onclick="agregarAlCarrito('Camisa Blanca',350)">Agregar al carrito</button>
+</div>
+<div class="producto">
+  <img src="https://tse1.mm.bing.net/th/id/OIP.TcmpsCqePu6thV5RTRLVrwHaKu?rs=1&pid=ImgDetMain&o=7&rm=3">
+  <h3>Pantalón Azul</h3>
+  <p>$480 MXN</p>
+  <button class="btn" onclick="agregarAlCarrito('Pantalón Azul',480)">Agregar al carrito</button>
+</div>
+<div class="producto">
+  <img src="https://www.dhresource.com/0x0/f2/albu/g10/M01/76/33/rBVaWV3n81uAMvqbAAS_zpxETzY090.jpg/moda-masculina-chamarra-mezclilla-hombre.jpg">
+  <h3>Chamarra de Mezclilla</h3>
+  <p>$690 MXN</p>
+  <button class="btn" onclick="agregarAlCarrito('Chamarra de Mezclilla',690)">Agregar al carrito</button>
+</div>
+<div class="producto">
+  <img src="https://th.bing.com/th/id/R.ac6a63a3936d8ed7fdb72a44957465d6?rik=Wzc0SN2Gn6R4ag&pid=ImgRaw&r=0">
+  <h3>Vestido Floral</h3>
+  <p>$520 MXN</p>
+  <button class="btn" onclick="agregarAlCarrito('Vestido Floral',520)">Agregar al carrito</button>
+</div>
+
+<div class="producto">
+  <img src="https://i.pinimg.com/736x/38/62/90/386290b476003e1657803110dbab89c6.jpg">
+  <h3>Blusa Rosa</h3>
+  <p>$260 MXN</p>
+  <button class="btn" onclick="agregarAlCarrito('Blusa Rosa',260)">Agregar al carrito</button>
+</div>
+<div class="producto">
+  <img src="https://images-na.ssl-images-amazon.com/images/I/71YX6LsfFuL._AC_UL1500_.jpg">
+  <h3>Gorra Negra</h3>
+  <p>$500 MXN</p>
+  <button class="btn" onclick="agregarAlCarrito('Gorra Negra',150)">Agregar al carrito</button>
+</div>
+<div class="producto">
+  <img src="https://media.glamour.mx/photos/67279569d7035bdc6f2e1ccf/master/w_1600%2Cc_limit/Botas%2520altas%2520cafe%25CC%2581s%2520camperas.jpg">
+  <h3>Botas Café</h3>
+  <p>$920 MXN</p>
+  <button class="btn" onclick="agregarAlCarrito('Botas Café',920)">Agregar al carrito</button>
+</div>
+<div class="producto">
+  <img src="https://www.bing.com/th/id/OIP.v22BkEEzRbzZoQ7j97nZ5wHaJ3?w=138&h=211&c=8&rs=1&qlt=90&r=0&o=6&pid=3.1&rm=2">
+  <h3>Falda Negra</h3>
+  <p>$310 MXN</p>
+  <button class="btn" onclick="agregarAlCarrito('Falda Negra',310)">Agregar al carrito</button>
+</div>
+<div class="producto">
+  <img src="https://th.bing.com/th/id/OIP._LymzbrmAezLrTvt2oxyrgHaJ4?w=184&h=245&c=7&r=0&o=7&pid=1.7&rm=3">
+  <h3>Suéter Beige</h3>
+  <p>$520 MXN</p>
+  <button class="btn" onclick="agregarAlCarrito('Suéter Beige',520)">Agregar al carrito</button>
+</div>
+<div class="producto">
+  <img src="https://th.bing.com/th/id/OIP.M_zxfh64eai2DV398L9E1gHaJ3?w=148&h=198&c=7&r=0&o=7&pid=1.7&rm=3">
+  <h3>Suéter Rojo</h3>
+  <p>$460 MXN</p>
+  <button class="btn" onclick="agregarAlCarrito('Suéter Rojo',460)">Agregar al carrito</button>
+</div>
+<div class="producto">
+  <img src="https://th.bing.com/th/id/OIP.3mxCQCgmB43TxKjpBFa6NgHaHa?w=177&h=180&c=7&r=0&o=7&pid=1.7&rm=3">
+  <h3>Short de Mezclilla</h3>
+  <p>$290 MXN</p>
+  <button class="btn" onclick="agregarAlCarrito('Short de Mezclilla',290)">Agregar al carrito</button>
+</div>
+<div class="producto">
+  <img src="https://th.bing.com/th/id/OIP.Dc3MQOH-T6mqGWPKL__1OAHaHa?w=192&h=192&c=7&r=0&o=7&pid=1.7&rm=3">
+  <h3>Tenis Blancos</h3>
+  <p>$780 MXN</p>
+  <button class="btn" onclick="agregarAlCarrito('Tenis Blancos',780)">Agregar al carrito</button>
+</div>
+</div>
+
+<section id="carrito">
+<h2>️ Carrito de Compras</h2>
+<div id="lista-carrito"></div>
+<p><strong>Total: </strong>$<span id="total">0</span> MXN</p>
+<button class="btn" onclick="vaciarCarrito()">Vaciar carrito</button>
+<button class="btn" onclick="irAlCarrito()">Finalizar compra</button>
+</section>
+</section>
+
+<section id="novedades">
+<h2 style="text-align:center; margin-top:20px; font-size:28px;">Novedades Elegantes</h2>
+
+<p style="text-align:center; max-width:700px; margin:auto; font-size:18px; color:#555; padding:10px 20px;">
+  Descubre nuestra selección más reciente de piezas exclusivas.  
+  Cada prenda está diseñada con un toque sofisticado, líneas finas y un estilo moderno que eleva cualquier outfit.  
+  Elegancia, calidad y distinción reunidas en una sola colección.
+</p>
+
+<div class="catalogo-novedades">
+
+<div class="producto">
+  <img src="https://www.bing.com/th?id=OPHS.C19WUqfV4Sem7Q474C474&o=5&pid=21.1&w=140&h=200&qlt=100&dpr=1&o=2&c=8&pcl=f5f5f5">
+  <h3>Vestido Satinado Negro</h3>
+  <p>$780 MXN</p>
+  <button class="btn" onclick="agregarAlCarrito('Vestido Satinado Negro',780)">Agregar al carrito</button>
+</div>
+
+<div class="producto">
+  <img src="data:image/jpeg;base64,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">
+  <h3>Blazer Beige Premium</h3>
+  <p>$950 MXN</p>
+  <button class="btn" onclick="agregarAlCarrito('Blazer Beige Premium',950)">Agregar al carrito</button>
+</div>
+
+<div class="producto">
+  <img src="https://www.bing.com/th?id=OPHS.qxuOnKzMJmPIzQ474C474&o=5&pid=21.1&w=140&h=200&qlt=100&dpr=1&o=2&c=8&pcl=f5f5f5">
+  <h3>Conjunto Elegante Blanco</h3>
+  <p>$1,250 MXN</p>
+  <button class="btn" onclick="agregarAlCarrito('Conjunto Elegante Blanco',1250)">Agregar al carrito</button>
+</div>
+
+<div class="producto">
+  <img src="data:image/jpeg;base64,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">
+  <h3>Bolso Minimalista</h3>
+  <p>$560 MXN</p>
+  <button class="btn" onclick="agregarAlCarrito('Bolso Minimalista',560)">Agregar al carrito</button>
+</div>
+
+</div>
+</section>
+
+<section id="ofertas">
+<h2 style="text-align:center; margin-top:20px;"> Ofertas Especiales</h2>
+<div class="catalogo-ofertas">
+
+<div class="producto">
+  <img src="https://th.bing.com/th/id/OIP.Dc3MQOH-T6mqGWPKL__1OAHaHa?w=192&h=192&c=7&r=0&o=7&pid=1.7&rm=3">
+  <h3>Tenis Blancos</h3>
+  <p><del>$780</del> <strong>$599 MXN</strong></p>
+  <button class="btn" onclick="agregarAlCarrito('Tenis Blancos',560)">Agregar al carrito</button>
+</div>
+<div class="producto">
+  <img src="https://i.pinimg.com/736x/38/62/90/386290b476003e1657803110dbab89c6.jpg">
+  <h3>Blusa Rosa</h3>
+  <p><del>$260</del> <strong>$199 MXN</strong></p>
+  <button class="btn" onclick="agregarAlCarrito('Blusa Rosa',560)">Agregar al carrito</button>
+</div>
+<div class="producto">
+  <img src="https://www.dhresource.com/0x0/f2/albu/g10/M01/76/33/rBVaWV3n81uAMvqbAAS_zpxETzY090.jpg/moda-masculina-chamarra-mezclilla-hombre.jpg">
+  <h3>Chamarra Mezclilla</h3>
+  <p><del>$690</del> <strong>$545 MXN</strong></p>
+  <button class="btn" onclick="agregarAlCarrito('Chamarra Mezclilla',560)">Agregar al carrito</button>
+</div>
+<div class="producto">
+  <img src="https://th.bing.com/th/id/OIP._LymzbrmAezLrTvt2oxyrgHaJ4?w=184&h=245&c=7&r=0&o=7&pid=1.7&rm=3">
+  <h3>Suéter Beige</h3>
+  <p><del>$520</del> <strong>$389 MXN</strong></p>
+  <button class="btn" onclick="agregarAlCarrito('Suéter Beige',560)">Agregar al carrito</button>
+</div>
+<div class="producto">
+  <img src="https://images-na.ssl-images-amazon.com/images/I/71YX6LsfFuL._AC_UL1500_.jpg">
+  <h3>Gorra</h3>
+  <p><del>$500</del> <strong>$300 MXN</strong></p>
+  <button class="btn" onclick="agregarAlCarrito('Gorra',560)">Agregar al carrito</button>
+</div>
+
+</div>
+</section>
+
+<section id="atencion">
+<h2 style="text-align:center;">Atención a Clientes</h2>
+<p> Estamos aqui para ayudarte. Si tienes dudas, comentarios o necesitas asistencia, completa el formulario o revisa la informacion adicional.</p>
+<form>
+<label>Nombre:</label>
+<input type="text" required>
+<label>Correo electrónico:</label>
+<input type="email" required>
+<label>Mensaje:</label>
+<textarea rows="4" required></textarea>
+<button class="btn">Enviar</button>
+</form>
+<div style="margin-top:20px;">
+<h3>📍 Información de contacto</h3>
+<p><strong>Teléfono:</strong> 899-923-4567</p>
+<p><strong>Email:</strong> FASHIONNOVA@gmail.com</p>
+<p><strong>Horario:</strong> Lunes a Viernes 10am - 8pm</p>
+<p><strong>Facebook</strong>: FashionNovaOficial</p>
+<p><strong>Instagram</strong>:FASHION NOVA</p>
+</div>
+</section>
+
+<section id="carrito-pedido">
+<h2 style="text-align:center;"> Finalizar Compra</h2>
+<div id="carritoResumen" style="background:white;padding:20px;margin:20px auto;border-radius:15px;max-width:600px;box-shadow:0 4px 8px rgba(0,0,0,0.1);">
+<h3>Productos en tu carrito:</h3>
+<div id="lista-carrito2"></div>
+<p style="font-size:20px; margin-top:15px;"><strong>Total a pagar:</strong> $<span id="total2">0</span> MXN</p>
+</div>
+
+<form id="formPedido" onsubmit="confirmarPedido(event)" style="max-width:600px;margin:20px auto;background:white;padding:20px;border-radius:15px;box-shadow:0 4px 8px rgba(0,0,0,0.1);">
+<h3>Datos de envío </h3>
+<label>Nombre completo:</label>
+<input type="text" id="nombre" required>
+<label>Dirección:</label>
+<textarea id="direccion" rows="3" required></textarea>
+<label>Teléfono:</label>
+<input type="tel" id="telefono" pattern="[0-9]{10}" required>
+<label>Método de pago:</label>
+<select id="pago" required>
+<option value="">Seleccione una opción</option>
+<option>Tarjeta</option>
+<option>Transferencia</option>
+<option>Pago contra entrega</option>
+</select>
+<button class="btn" type="submit" style="margin-top:10px;">Confirmar pedido</button>
+</form>
+
+<div id="mensajeFinal" style="display:none;text-align:center;padding:20px;max-width:600px;margin:20px auto;background:white;border-radius:15px;box-shadow:0 4px 8px rgba(0,0,0,0.1);">
+<h3> ¡Pedido Confirmado!</h3>
+<p id="textoFinal"></p>
+<button class="btn" onclick="mostrar('inicio')">Regresar al catálogo</button>
+</div>
+</section>
+
+<section id="informacion">
+  <h2 style="text-align:center; margin-top:20px;">Información Adicional</h2>
+  <div style="max-width:700px; margin:auto; background:white; padding:20px; border-radius:15px; box-shadow:0 4px 8px rgba(0,0,0,0.1); font-size:18px; line-height:1.6;">
+    <h3> Normas de la Tienda</h3>
+    <p>
+      • No se aceptan devoluciones sin ticket.<br>
+      • Cambios solo dentro de los primeros 7 días después de la compra.<br>
+      • No se hacen apartados sin anticipo.<br>
+      • La garantía aplica únicamente por defectos de fábrica.<br>
+      • Los precios pueden cambiar sin previo aviso.<br>
+      • En ofertas no hay cambios ni devoluciones.<br>
+      • Los pagos con tarjeta tienen un cargo adicional del 5%.<br>
+      • Los envíos tardan entre 2–5 días hábiles.<br>
+    </p>
+  </div>
+</section>
+</style>
+
+<footer>
+<p>©️ 2025 FASHION NOVA</p>
+</footer>
+
+<script>
+function mostrar(id){
+  document.querySelectorAll("section").forEach(sec=>sec.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+}
+
+let total=0;
+function agregarAlCarrito(nombre,precio){
+  const lista=document.getElementById("lista-carrito");
+  const item=document.createElement("p");
+  item.textContent=nombre+" - $"+precio+" MXN";
+  lista.appendChild(item);
+  total+=precio;
+  document.getElementById("total").textContent=total;
+  alert(nombre+" agregado al carrito ");
+}
+
+function vaciarCarrito(){
+  document.getElementById("lista-carrito").innerHTML="";
+  total=0;
+  document.getElementById("total").textContent=total;
+  alert("Carrito vaciado ");
+}
+
+function irAlCarrito(){
+  mostrar('carrito-pedido');
+  document.getElementById("lista-carrito2").innerHTML=document.getElementById("lista-carrito").innerHTML;
+  document.getElementById("total2").textContent=total;
+}
+
+function confirmarPedido(e){
+  e.preventDefault();
+  const nombre=document.getElementById("nombre").value;
+  const direccion=document.getElementById("direccion").value;
+  const telefono=document.getElementById("telefono").value;
+  const pago=document.getElementById("pago").value;
+  document.getElementById("mensajeFinal").style.display="block";
+  document.getElementById("textoFinal").innerHTML=`
+    Gracias <strong>${nombre}</strong>.<br><br>
+    Tu pedido será enviado a:<br>
+    <strong>${direccion}</strong><br><br>
+    Te contactaremos al <strong>${telefono}</strong>.<br>
+    Método de pago: <strong>${pago}</strong><br><br>
+    Total pagado: <strong>$${total} MXN</strong>.
+  `;
+  vaciarCarrito();
+}
+</script>
+
+</body>
+</html>
